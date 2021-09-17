@@ -1,6 +1,11 @@
-# Exemples de requête DAX construite pour des besoins précis
+ **Vous trouverez dans cette page quelques exemples de requête DAX construite pour des besoins précis**
 
-## Créer un table synthétique de mouvement de crédit et débit en fonction d'une liste SharePoint
+- [Créer un table synthétique de mouvement de crédit et débit en fonction d'une liste SharePoint](#créer-un-table-synthétique-de-mouvement-de-crédit-et-débit-en-fonction-dune-liste-sharepoint)
+- [Obtenir une note sous forme d'étoile](#obtenir-une-note-sous-forme-détoile)
+- [Calculer un montant des commande cumulés qui ne sera pas impacté par les filtres](#calculer-un-montant-des-commande-cumulés-qui-ne-sera-pas-impacté-par-les-filtres)
+
+
+# Créer un table synthétique de mouvement de crédit et débit en fonction d'une liste SharePoint
 
 Dans ce cas de figure j'ai une liste SharePoint qui me permet de saisir un mouvement de budget d'une activité vers une autre. Le problème c'est que je ne peux avoir que la somme des crédit mais pas la somme négative des débits.
 
@@ -22,7 +27,7 @@ Pour cela j'utilise les fonctions DAX 'UNION' et 'SUMMARIZE' en regroupant la so
             SUM('Mouvements'[Montant])*-1)
             )
 
-## Obtenir une note sous forme d'étoile
+# Obtenir une note sous forme d'étoile
 
 Un de mes clients souhaitait avoir une note pour afficher la qualité du budget en cours sur tableau de bord de suivi budgétaire.
 
@@ -84,7 +89,7 @@ Ce qui donne la mesure suivante :
         )
 
 
-## Calculer un montant des commande cumulés qui ne sera pas impacté par les filtres
+# Calculer un montant des commande cumulés qui ne sera pas impacté par les filtres
 
 Pour cela on va utiliser la fonction 'ALL' qui dans notre cas sera mixer avec un 'Filter' pour obtenir toutes les commandes dont la date de signature est inférieur ou égale à la valeur 'MAX' et toutes les commandes ayant le statut 'Signé' via la fonction 'IN'
 
